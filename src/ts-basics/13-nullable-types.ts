@@ -10,3 +10,4 @@ function greet(name: string | null | undefined) {
 greet("kat");
 greet(null);
 greet(undefined);
+greet(""); // empty string treated as no name, prints "Hola!"
