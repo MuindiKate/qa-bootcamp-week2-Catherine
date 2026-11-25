@@ -1,0 +1,11 @@
+export {};
+type Draggable = { drag: () => void };
+type Resizable = { resize: () => void };
+type UIWidget = Draggable & Resizable;
+
+let textBox: UIWidget = {
+  drag: () => console.log("dragging"),
+  resize: () => console.log("resizing"),
+};
+textBox.drag();
+textBox.resize();
