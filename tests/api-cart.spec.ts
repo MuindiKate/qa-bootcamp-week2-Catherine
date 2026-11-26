@@ -20,7 +20,9 @@ test('create a cart, add a product, and check the cart contents', async ({ reque
   // Get a real product id first, so the test never relies on a stale id
   const products = await request.get(`${API}/products`);
   expect(products.status()).toBe(200);
-  const productId = (await products.json()).data[0].id;
+  const body = await products.json();
+  expect(body.data.length, 'The API returned no products to test with').toBeGreaterThan(0);
+  const productId = body.data[0].id;
 
   // Create a cart
   const createCart = await request.post(`${API}/carts`);
