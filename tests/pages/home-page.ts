@@ -3,10 +3,12 @@ import { type Locator, type Page } from '@playwright/test';
 export class HomePage {
   readonly page: Page;
   readonly productNames: Locator;
+  readonly pageButtons: Locator;
 
   constructor(page: Page) {
     this.page = page;
     this.productNames = page.getByRole('heading', { level: 5 });
+    this.pageButtons = page.getByRole('button', { name: /^Page-\d+$/ });
   }
 
   async goto() {

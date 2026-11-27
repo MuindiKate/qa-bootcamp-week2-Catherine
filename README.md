@@ -94,3 +94,13 @@ UI tests (Tuesday), a page object test (Wednesday) and API tests (Thursday) agai
 
 The tests use the shared practice site. If it is down or resetting its data, tests can fail for environment reasons, so check the site loads first.
 
+## Capstone (Friday)
+
+Cases chosen: C2 Filter by category (UI) and C4 Add to a cart (API), with C5 Unknown cart as an extra check.
+
+- tests/capstone/c2-filter-by-category.spec.ts: UI test through the HomePage page object (tests/pages/home-page.ts)
+- tests/capstone/c4-add-to-cart.spec.ts: API test using the cart helper (tests/helpers/cart-api.ts); creates its own cart and deletes it afterwards, even if a check fails
+- tests/drill/save-message.spec.ts: flakiness drill, fixed by waiting for the message instead of a fixed time
+
+Run only the capstone tests: `npx playwright test tests/capstone/`
+Run the drill 20 times: `npx playwright test tests/drill/ --repeat-each=20`
