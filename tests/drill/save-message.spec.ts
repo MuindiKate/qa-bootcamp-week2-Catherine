@@ -9,8 +9,6 @@ test('Drill: Saved message appears after clicking Save', async ({ page }) => {
   await page.goto(DRILL_PAGE);
   await page.getByRole('button', { name: 'Save' }).click();
 
-  await page.waitForTimeout(500); // fixed wait: a guess at how long saving takes
-
-  const message = await page.getByRole('paragraph').textContent(); // read once
-  expect(message).toBe('Saved'); // plain check, doesn't retry
+  // Wait for the condition, not a guess: this retries until the text is "Saved" (up to 5 seconds)
+  await expect(page.getByRole('paragraph')).toHaveText('Saved');
 });
