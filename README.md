@@ -77,3 +77,20 @@ Run these steps in order from a terminal.
 
 Run:
 npx tsx src/profile-validator.ts
+
+## Week 2 test suite
+
+UI tests (Tuesday), a page object test (Wednesday) and API tests (Thursday) against practicesoftwaretesting.com.
+
+- tests/home.spec.ts, tests/search.spec.ts, tests/login.spec.ts: UI tests
+- tests/pages/home-page.ts and tests/category-filter.spec.ts: page object and the test that uses it
+- tests/api-products.spec.ts, tests/api-cart.spec.ts: API tests (the cart test deletes its own cart afterwards)
+
+### Run it in three steps
+
+1. Install: `npm install`, then `npx playwright install chromium`
+2. Copy `.env.example` to `.env`
+3. Run the tests: `npm test`
+
+The tests use the shared practice site. If it is down or resetting its data, tests can fail for environment reasons, so check the site loads first.
+
